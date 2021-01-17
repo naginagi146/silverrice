@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+
+   <div class="album py-5 bg-light">
+      <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+          <div class="col">
+            <div class="card shadow-sm">
+                {% for image in posts.images.all %}
+                <img class="d-block w-100" src={{ image.modelimage.url }} alt="First slide">
+                {% endfor %}
+                    <div class="card-body">{{ posts.author.user_name }}
+                        <p class="card-text">{{ posts.text }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <a href="{% url 'sdgs:post_update' posts.pk  %}"><button type="button" class="btn btn-sm btn-outline-secondary">編集</button></a>
+                    <a href="{% url 'sdgs:post_delete' posts.pk  %}"><button type="button" class="btn btn-sm btn-outline-secondary">削除</button></a>
+                  </div>
+                  <small class="text-muted">{{ post.created_at }}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+              </div>
+            </div>
+          </div>
+
+{% endblock %}

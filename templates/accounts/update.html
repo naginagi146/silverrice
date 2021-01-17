@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block content %}
+
+<head>
+    <meta charset="utf-8" />
+    <title>ユーザー</title>
+</head>
+
+<body>
+    <h1>登録情報の編集</h1>
+    <form method="post" novalidate>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <li><input type="submit" href="{% url 'accounts:profile' user.pk %}" value="登録"></li>
+    </form>
+</body>
+{% endblock %}

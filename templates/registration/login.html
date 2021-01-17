@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <div class='container'>
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class='border-bottom mb-4 text-left'>Login</legend>
+                {{ form }}
+            </fieldset>
+            <div class='form-group'>
+                <button class='btn btn-outline-info' type='submit' >Login</button>
+                <small class="text-muted ml-2">
+                    {% comment %} <a href="">
+                        パスワードをお忘れですか？
+                    </a> {% endcomment %}
+                </small>
+            </div>
+        </form>
+        <div class='border-top pt-3'>
+            <p class='text-muted'>
+            アカウントをお持ちでない方はこちらから <a class='ml-2' href="{% url 'accounts:create' %}"><small>新規登録</small></a>
+        </p>
+        </div>
+
+    </div>
+{% endblock %}
